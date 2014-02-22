@@ -1,0 +1,8 @@
+*** Settings ***
+Library           ExampleKeywords
+
+*** Test Cases ***
+additionTest
+    [Documentation]    Call custom Java keyword which is wrapping tested library, and verify a result
+    ${result}=    testAddMethod    123    456
+    Should Be Equal As Integers    ${result}    579
