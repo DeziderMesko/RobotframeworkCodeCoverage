@@ -36,7 +36,7 @@
 							<externalRunner>
 								<excludeDependencies>false</excludeDependencies>
 								<jvmArgs>
-									<jvmArg>-javaagent:${project.basedir}/src/test/robotframework/jacocoagent-0.6.2.jar=destfile=${project.build.directory}/jacoco.exec</jvmArg>
+									<jvmArg>${argLine}</jvmArg>
 								</jvmArgs>
 							</externalRunner>
 						</configuration>
@@ -63,29 +63,29 @@
 					</execution>
 				</executions>
 			</plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.16</version>
-                <executions>
-                    <execution>
-                        <id>default-test</id>
-                        <configuration>
-                            <skipTests>true</skipTests>
-                        </configuration>
-                    </execution>                
-                    <execution>
-                        <id>unit-tests</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <skip>${skipUnitTests}</skip>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.16</version>
+				<executions>
+					<execution>
+						<id>default-test</id>
+						<configuration>
+							<skipTests>true</skipTests>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unit-tests</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<skip>${skipUnitTests}</skip>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
